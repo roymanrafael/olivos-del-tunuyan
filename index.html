@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow+Condensed:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #f0f0ec; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.01em; }
+  a { color: #806256; }
+  a:hover { color: #b87333; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+
+<div style="width:100%; max-width:100%; overflow-x:hidden; color:#101820; background:#f0f0ec;">
+
+  <!-- HERO -->
+  <section style="position:relative;">
+    <div style="padding:40px 6vw 8px; display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;">
+      <div style="font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(32px,4.6vw,54px); letter-spacing:0.2px; color:#101820;">Olivos del Tunuyán</div>
+      <div style="font-size:14px; color:#837a5e; letter-spacing:.25em; text-transform:uppercase;">Finca La Dormida</div>
+      <a href="Nuestros Productos.dc.html" style="margin-left:auto; align-self:center; font-size:14px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:#b87333; text-decoration:none; border:1px solid #b87333; border-radius:6px; padding:11px 24px;" style-hover="background:#b87333; color:#f0f0ec;">Nuestros productos →</a>
+    </div>
+    <div style="height:2px; margin:0 6vw 0; background:#b8733366;"></div>
+    <div style="position:relative; height:min(78vh,640px); display:flex; align-items:flex-end; overflow:hidden;">
+      <sc-for list="{{ heroSlides }}" as="h" hint-placeholder-count="5">
+        <div style="{{ h.style }}"></div>
+      </sc-for>
+      <div style="position:absolute; inset:0; background:linear-gradient(0deg, #101820bf 0%, #10182026 55%, transparent 75%);"></div>
+      <div style="position:relative; z-index:1; width:100%; padding:48px 6vw 64px;">
+        <div style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(26px,3.4vw,42px); color:#fff; max-width:820px; line-height:1.35; text-shadow:0 2px 18px #0000008c;">"Donde los olivos tienen más años que el pueblo."</div>
+        <div style="margin-top:18px; font-size:15px; color:#fff; letter-spacing:.22em; text-transform:uppercase; text-shadow:0 1px 10px #00000099;">Finca La Dormida · Santa Rosa · Mendoza</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO / ACTIVOS -->
+  <section style="padding:88px 6vw 72px; max-width:1180px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:1.1fr 1fr; gap:56px; align-items:start;">
+      <div>
+        <div style="font-size:13px; letter-spacing:.25em; text-transform:uppercase; color:#b87333; font-weight:600; margin-bottom:14px;">El lugar y sus activos extraordinarios</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:clamp(26px,3vw,38px); line-height:1.25; margin-bottom:20px; color:#101820;">Fuera de los circuitos turísticos de Mendoza — y esa es la ventaja.</div>
+        <p style="font-size:18px; line-height:1.7; color:#101820; max-width:52ch;">La Dormida es un paraje de Santa Rosa, sobre el río Tunuyán, a 25 km de la villa cabecera, con acceso directo desde la Ruta Nacional 7. El campo más antiguo del este mendocino, con los olivos que nadie vio todavía.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#c5b9ac; border:1px solid #c5b9ac;">
+        <sc-for list="{{ assets }}" as="a" hint-placeholder-count="5">
+          <div style="background:#f0f0ec; padding:26px 22px;">
+            <div style="font-family:'Instrument Serif',serif; font-size:30px; font-weight:400; color:#b87333;">{{ a.stat }}</div>
+            <div style="font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:#837a5e; margin-top:4px; font-weight:600;">{{ a.label }}</div>
+            <div style="font-size:13.5px; line-height:1.55; color:#101820b3; margin-top:8px;">{{ a.detail }}</div>
+          </div>
+        </sc-for>
+        <div style="background-image:url('assets/casco-hacienda.png'); background-size:cover; background-position:center;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAQUETES -->
+  <section style="padding:0 6vw 96px; max-width:1180px; margin:0 auto;">
+    <div style="font-size:13px; letter-spacing:.25em; text-transform:uppercase; color:#b87333; font-weight:600; margin-bottom:14px;">Experiencias y productos</div>
+    <div style="font-family:'Instrument Serif',serif; font-size:clamp(26px,3vw,36px); color:#101820; margin-bottom:36px;">Paquetes turísticos</div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:22px;">
+      <sc-for list="{{ packages }}" as="p" hint-placeholder-count="6">
+        <div onClick="{{ p.open }}" style="cursor:pointer; border:1px solid #c5b9ac; background:#f5f3ee; padding:28px 24px; display:flex; flex-direction:column; gap:10px;" style-hover="border-color:#b8733399;">
+          <div style="font-family:'Instrument Serif',serif; font-size:20px; color:#101820; line-height:1.3;">{{ p.title }}</div>
+          <div style="font-size:15.5px; line-height:1.6; color:#101820b3;">{{ p.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-if value="{{ selectedPackage }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; z-index:50; background:#f0f0ec; overflow-y:auto;">
+      <div style="max-width:780px; margin:0 auto; padding:56px 6vw 96px;">
+        <div onClick="{{ closePackage }}" style="cursor:pointer; font-size:13.5px; color:#837a5e; margin-bottom:32px; display:inline-block;">← Volver</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:clamp(28px,4vw,42px); color:#101820; line-height:1.25; margin-bottom:20px;">{{ selectedPackage.title }}</div>
+        <div style="font-size:18px; line-height:1.8; color:#101820; white-space:pre-line;">{{ selectedPackage.detail }}</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- HISTORIA -->
+  <section style="background:#101820; padding:96px 6vw; position:relative;">
+    <div style="max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+      <div style="height:420px; background-image:url('assets/posta-camino.png'); background-size:cover; background-position:center;"></div>
+      <div>
+        <div style="font-size:13px; letter-spacing:.25em; text-transform:uppercase; color:#b87333; font-weight:600; margin-bottom:14px;">Historia y storytelling</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:clamp(26px,3vw,36px); line-height:1.3; color:#fff; margin-bottom:18px;">La posta La Dormida del Negro</div>
+        <p style="font-size:17.5px; line-height:1.75; color:#f0f0ece6; max-width:52ch;">Toponimia colonial documentada desde el siglo XIX. Una de las pocas postas del camino real mendocino con nombre y registro histórico — donde descansaban los viajeros entre Buenos Aires y Mendoza.</p>
+        <p style="font-size:17.5px; line-height:1.75; color:#f0f0ece6; max-width:52ch; margin-top:16px;">Doscientos olivos plantados antes de que existiera el departamento de Santa Rosa, fundado en 1884. El campo es rústico, antiguo y real — eso es el valor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTACIONALIDAD -->
+  <section style="padding:96px 6vw; max-width:1180px; margin:0 auto;">
+    <div style="font-size:13px; letter-spacing:.25em; text-transform:uppercase; color:#b87333; font-weight:600; margin-bottom:14px;">Cuándo venir</div>
+    <div style="font-family:'Instrument Serif',serif; font-size:clamp(26px,3vw,36px); color:#101820; margin-bottom:44px;">Estacionalidad</div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:2px solid #101820;">
+      <sc-for list="{{ seasons }}" as="s" hint-placeholder-count="3">
+        <div style="padding:28px 26px; border-right:1px solid #c5b9ac;">
+          <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:#837a5e;">{{ s.name }}</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:19px; margin-top:6px; color:#101820;">{{ s.period }}</div>
+          <div style="font-size:15.5px; line-height:1.6; color:#101820b3; margin-top:12px;">{{ s.detail }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section style="padding:0 6vw 96px; max-width:1180px; margin:0 auto;">
+    <div style="font-size:13px; letter-spacing:.25em; text-transform:uppercase; color:#b87333; font-weight:600; margin-bottom:14px;">Galería</div>
+    <div style="font-family:'Instrument Serif',serif; font-size:clamp(26px,3vw,36px); color:#101820; margin-bottom:32px;">El campo, tal como es</div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(2,220px); gap:10px;">
+      <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="6">
+        <div style="{{ g.bg }}">
+          <div style="font-family:ui-monospace,monospace; font-size:12px; color:#f0f0ece6;">{{ g.caption }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- FOOTER / CTA -->
+  <section style="background:#101820; padding:88px 6vw 56px;">
+    <div style="max-width:1180px; margin:0 auto; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap-reverse; gap:40px;">
+      <div style="max-width:560px; flex:1 1 420px; display:flex; flex-direction:column; gap:22px;">
+        <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(20px,2.4vw,28px); color:#fff; line-height:1.4;">"El activo más poderoso ya existe. Lo que falta es que el mundo lo sepa."</div>
+        <div style="font-size:14px; color:#c5b9ac;">Olivos del Tunuyán — Finca La Dormida, Santa Rosa, Mendoza.</div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="#" style="background:#b87333; color:#f0f0ec; font-weight:500; font-size:15px; padding:15px 30px; border-radius:8px; text-decoration:none; letter-spacing:.12em; text-transform:uppercase;">Reservar en Airbnb</a>
+          <a href="#" style="background:transparent; border:1px solid #c5b9ac80; color:#fff; font-weight:500; font-size:15px; padding:15px 30px; border-radius:8px; text-decoration:none; letter-spacing:.12em; text-transform:uppercase;">Ver en Booking</a>
+        </div>
+      </div>
+      <div style="flex:0 0 auto; display:flex; flex-direction:column; align-items:center; gap:14px;">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=RP50%2C+RP50+M5507+Santa+Rosa+Mendoza+Argentina&travelmode=driving" target="_blank" rel="noopener" title="Abrir en Google Maps" style="width:170px; height:170px; border-radius:50%; border:1px solid #c5b9ac80; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-decoration:none; transition:border-color .3s ease, background .3s ease;" style-hover="border-color:#b87333; background:#b8733314;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b87333" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <div style="font-size:12.5px; letter-spacing:.22em; text-transform:uppercase; color:#fff; font-weight:500;">Cómo llegar</div>
+          <div style="font-size:12px; letter-spacing:.05em; color:#c5b9ac;">Ver en el mapa →</div>
+        </a>
+        <div style="font-size:12.5px; letter-spacing:.05em; color:#c5b9ac; text-align:center;">RP 50 · Santa Rosa · Mendoza</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { selectedIndex: null, heroIndex: 0 };
+  componentDidMount() {
+    this._heroTimer = setInterval(() => {
+      this.setState(s => ({ heroIndex: (s.heroIndex + 1) % 5 }));
+    }, 3000);
+  }
+  componentWillUnmount() {
+    clearInterval(this._heroTimer);
+  }
+  renderVals() {
+    const heroImages = ['assets/hero-olivar.png', 'assets/hero-2.png', 'assets/hero-3.png', 'assets/hero-4.png', 'assets/hero-5.png'];
+    const heroSlides = heroImages.map((src, i) => ({
+      style: `position:absolute; inset:0; background-image:url('${src}'); background-size:cover; background-position:center 60%; opacity:${i === this.state.heroIndex ? 1 : 0}; transition:opacity 1.2s ease;`,
+    }));
+    const packagesData = [
+      { title: 'Alquiler de casas', desc: 'Casa 1 (hasta 8 personas), casa grande, o predio completo. Tarifa por temporada.',
+        detail: 'Casa 1 (huéspedes): alquiler por noche para grupos de hasta 8 personas, con tarifa diferenciada por temporada alta y baja. Gestión mediante plataformas de alojamiento y reserva directa.\n\nCasa 2 (casa grande): para grupos mayores o alquiler de predio completo, con tarifa diferenciada según modalidad.\n\nPredio completo: casas + galpón + lago + olivar, ideal para eventos o retiros corporativos. Tarifa a convenir según duración y tipo de evento.' },
+      { title: 'Día de campo', desc: 'Lago + parrilla + descanso bajo los olivos. Hasta 30 personas, con cata de aceite.',
+        detail: 'Acceso al lago circular + parrilla + área de descanso bajo los olivos, sin pernoctación.\n\nCapacidad operativa: hasta 30 personas por fecha. Modalidad de cobro por persona o por grupo, a definir por el responsable de área.\n\nIncluye guía breve del olivar y cata de aceite de oliva.' },
+      { title: 'Experiencia del olivar', desc: 'Caminata guiada de 1,5 hs entre los 200 olivos + cata de AOVE. Opción cosecha abril-mayo.',
+        detail: 'Caminata guiada de 1,5 hs entre los 200 olivos centenarios, con la historia del paraje.\n\nCata de aceite de oliva virgen extra de producción local o propia.\n\nOpcional: taller de cosecha (abril-mayo) o apadrinar un olivo.\n\nModalidad individual o grupal; puede combinarse con alojamiento o día de campo.' },
+      { title: 'Astroturismo', desc: 'Observación nocturna guiada, sin contaminación lumínica. Add-on a cualquier pernoctación.',
+        detail: 'Observación nocturna con guía o aplicación. El cielo del este mendocino tiene condiciones excepcionales por ausencia de contaminación lumínica.\n\nSe ofrece como add-on a cualquier noche en el predio, o como noche temática independiente.\n\nCosto operativo mínimo: no requiere infraestructura específica.' },
+      { title: 'Eventos y celebraciones', desc: 'Uso exclusivo del predio: galpón, lago y olivar como escenografía para casamientos y retiros.',
+        detail: 'Casamientos, cumpleaños, eventos corporativos con uso exclusivo del predio.\n\nEl galpón como espacio cubierto + lago + olivar como escenografía natural.\n\nTarifa a convenir según tipo de evento, cantidad de asistentes y duración.' },
+      { title: 'Cosecha participativa', desc: 'Un día de cosecha real, elaboración artesanal y almuerzo de campo. Abril-mayo, grupos de 10-20.',
+        detail: 'Experiencia de un día: cosecha real de los olivos centenarios, elaboración artesanal, almuerzo de campo.\n\nGrupos de 10 a 20 personas. Alta demanda en el segmento de agroturismo y turismo cultural.\n\nTarifa por persona, incluye almuerzo y botella de aceite de producción propia.' },
+    ];
+    return {
+      heroSlides,
+
+      
+      packages: packagesData.map((p, i) => ({ ...p, open: () => this.setState({ selectedIndex: i }) })),
+      selectedPackage: this.state.selectedIndex === null ? false : packagesData[this.state.selectedIndex],
+      closePackage: () => this.setState({ selectedIndex: null }),
+      assets: [
+        { stat: '200', label: 'Olivos centenarios', detail: 'Plantados antes de 1884, únicos en el este mendocino.' },
+        { stat: '40 m', label: 'Lago circular privado', detail: 'No existe otro igual en ningún campo de la región.' },
+        { stat: '50 ha', label: 'Campo propio', detail: 'Privacidad total y usos simultáneos sin congestión.' },
+        { stat: '2', label: 'Casas + galpón + pileta', detail: 'Infraestructura existente, sin inversión inicial.' },
+        { stat: 'S. XIX', label: 'Posta La Dormida del Negro', detail: 'Toponimia colonial del camino real mendocino.' },
+      ],
+      seasons: [
+        { name: 'Alta', period: 'Dic–Mar / Jul–Ago', detail: 'Alquiler de casas, día de campo, lago en verano; escapada de invierno.' },
+        { name: 'Especial', period: 'Abril–Mayo', detail: 'Cosecha participativa. El producto de mayor valor diferencial del año.' },
+        { name: 'Media', period: 'Jun / Sep–Nov', detail: 'Eventos, retiros corporativos y experiencia del olivar con reserva anticipada.' },
+      ],
+      gallery: [
+        { span: 2, caption: '', hue: 230, photo: 'assets/lago-drone.png' },
+        { span: 1, caption: '', hue: 130, photo: 'assets/la-dormida-jinetes.png' },
+        { span: 1, caption: '', hue: 260, photo: 'assets/cosecha-atardecer.jpeg' },
+        { span: 1, caption: '', hue: 60, photo: 'assets/fuego-cosecha.png' },
+        { span: 1, caption: '', hue: 90, photo: 'assets/galpon-eventos.png' },
+        { span: 2, caption: '', hue: 40, photo: 'assets/atardecer-campo.png' },
+      ].map(g => ({ ...g, bg: g.photo
+        ? `grid-column:span ${g.span}; background-image:url('${g.photo}'); background-size:cover; background-position:center;`
+        : `grid-column:span ${g.span}; display:flex; align-items:center; justify-content:center; padding:12px; text-align:center; background:repeating-linear-gradient(135deg, oklch(58% 0.06 ${g.hue}) 0 20px, oklch(50% 0.06 ${g.hue}) 20px 40px);` })),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
